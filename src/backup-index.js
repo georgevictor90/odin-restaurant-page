@@ -3,11 +3,6 @@ import Logo from './logo-sunrise.svg';
 import HamburgerMenu from './Hamburger_icon.svg';
 import MainBackground from './terrace.jpg';
 import PhoneIcon from './phone-icon.svg';
-import showHomepage from './home/home';
-import showAbout from './about/about';
-import removeMain from './removeMain';
-import showMenu from './menu/menu';
-import showContact from './contact/contact';
 
 const content = document.querySelector('.content');
 
@@ -44,18 +39,16 @@ menuButton.appendChild(menuButtonImg);
 nav.appendChild(menuButton);
 
 const menuList = document.createElement('ul');
-menuList.className = 'navigation-drawer';
+menuList.clasName = 'navigation-drawer';
 
 const menuListItems = ['Home', 'About', 'Menu', 'Contact'];
-const functionsArr = [showHomepage, showAbout];
 
 for (let i = 0; i <= menuListItems.length - 1; i++) {
   const li = document.createElement('li');
-  li.className = `li-${i+1}`;
   const link = document.createElement('a');
+
   link.textContent = menuListItems[i];
-  link.href = `#`;
-  link.id = `${i+1}`;
+  link.href = `#${menuListItems[i].toLowerCase()}`;
   li.appendChild(link);
   menuList.appendChild(li);
 }
@@ -65,12 +58,47 @@ nav.appendChild(menuList);
 /// Menu button event listener
 menuButton.addEventListener('click', () => {
   menuList.classList.toggle('clicked');
-});
+})
+
+//Create main html
+
+const main = document.createElement('main');
+content.appendChild(main);
+
+const hero = document.createElement('div');
+hero.className = 'hero';
+const heroTitle = document.createElement('h2');
+heroTitle.textContent = 'MEDITERRANEAN DELIGHTS AND GOURMET BURGERS';
+
+const springMenuButton = document.createElement('button');
+springMenuButton.type = 'button'
+const springMenuLink = document.createElement('a');
+springMenuLink.textContent = 'Spring-Summer Menu';
+springMenuLink.href = '#';
+
+hero.appendChild(heroTitle);
+springMenuButton.appendChild(springMenuLink);
+hero.appendChild(springMenuButton);
+
+main.appendChild(hero);
+
+const info = document.createElement('div');
+info.className = 'info';
+const infoArray = ['Riviera Dionisio Il Grande, 194, 96100 Siracusa SR, Italia','+39 06 173 14002', 'Mon-Fri 12:30-22:45', 'Ristorante Aurora Copyright 2022'];
+
+for (let i = 0; i <= infoArray.length - 1; i++) {
+  const infoDiv = document.createElement('div');
+  infoDiv.className = infoArray[i];
+  infoDiv.textContent = infoArray[i].charAt(0).toUpperCase() + infoArray[i].slice(1);
+  info.appendChild(infoDiv);
+}
+
+main.appendChild(info);
+
 
 //Create footer html
 
 const footer = document.createElement('footer');
-footer.className = 'footer';
 const callIcon = document.createElement('img');
 callIcon.src = PhoneIcon;
 callIcon.alt = 'call us';
@@ -85,31 +113,4 @@ content.appendChild(footer);
 
 
 
-showHomepage();
-const homeBtn = document.getElementById('1');
-homeBtn.addEventListener('click', () => {
-  removeMain();
-  showHomepage();
-  menuList.classList.toggle('clicked');
-})
 
-const aboutBtn = document.getElementById('2');
-aboutBtn.addEventListener('click', () => {
-  removeMain();
-  showAbout();
-  menuList.classList.toggle('clicked');
-})
-
-const menuBtn = document.getElementById('3');
-menuBtn.addEventListener('click', () => {
-  removeMain();
-  showMenu();
-  menuList.classList.toggle('clicked');
-})
-
-const contactBtn = document.getElementById('4');
-contactBtn.addEventListener('click', () => {
-  removeMain();
-  showContact();
-  menuList.classList.toggle('clicked');
-})

@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,200;1,400&display=swap');
+
+h3,h4, p {
+  color: var(--dark-clr);
+  font-family: 'Montserrat',sans-serif;
+}
+
+.main-menu p {
+  font-size: .7rem;
+  font-style: italic;
+}
+
+.main-menu {
+  background-color: var(--light-clr);
+  padding-inline: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+.menu-h2 {
+  color: white;
+  background-image: url(./louis-hansel-UtcOhVC-3VU-unsplash.jpg);
+  background-size: cover;
+  background-position: 20% 75%;
+  padding: 1.5rem 1rem;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-weight: 200;
+  background-color: rgba(0, 0, 0, .2);
+  background-blend-mode: multiply;
+  border-radius: 5px;
+} 
+
+.menu-container {
+  margin-block: 2rem;
+}
+
+.menu-category {
+  color: rgb(255, 165, 0);
+}
+
+@media screen and (min-width: 480px) {
+  .menu-container {
+    width: 60%;
+    margin-left: 2rem;
+  }
+}
